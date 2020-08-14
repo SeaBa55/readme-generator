@@ -38,7 +38,7 @@ const questions = [
     {
     type: "input",
     name: "tests",
-    message: "What command should be run to run your tests?",
+    message: "What command should be executed to run your tests?",
     },
     {
     type: "input",
@@ -52,6 +52,7 @@ const questions = [
     }
 ];
 
+// function to deploy user prompts to the CL terminal
 function userPrompt() {
     return inquirer.prompt(questions);
 }
@@ -68,9 +69,10 @@ function writeToFile(fileName,data) {
     });
 }
 
+// send data off to generateMarkdown.js to be processed into README.md
 userPrompt()
 .then(function(data) {
-    writeToFile("gooseREADME.md",data);
+    writeToFile("README.md",data);
 })
 .then(function(){
     console.log("success");
@@ -78,11 +80,3 @@ userPrompt()
 .catch(function(error) {
     console.log(error);
 });
-
-// // function to initialize program
-// function init() {
-
-// }
-
-// // function call to initialize program
-// init();
